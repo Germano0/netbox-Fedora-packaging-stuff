@@ -1,3 +1,6 @@
 STATUS                                    NAME                  RedHat Bugzilla id
 
-APPROVED, in updates-testing              python-py-gfm         https://bugzilla.redhat.com/show_bug.cgi?id=1366277 
+APPROVED, currently in review             python-py-gfm         https://bugzilla.redhat.com/show_bug.cgi?id=1366277 
+with the co-maintainer due
+problems with python-markdown
+dependencyin updates-testing              
