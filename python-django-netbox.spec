@@ -1,5 +1,8 @@
 %global oname netbox
 
+# Use Python 3 by default
+%bcond_without python3
+
 %global python2_pkgversion 2
 %{?!python3_pkgversion:%global python3_pkgversion 3}
 
