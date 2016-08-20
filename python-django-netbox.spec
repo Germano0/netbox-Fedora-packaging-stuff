@@ -1,12 +1,5 @@
 %global oname netbox
 
-%if 0%{?fedora} && 0%{?rhel} > 7
-# Build with python3
-%bcond_without python3
-%else
-%bcond_with python3
-%endif
-
 %global python2_pkgversion 2
 %{?!python3_pkgversion:%global python3_pkgversion 3}
 
