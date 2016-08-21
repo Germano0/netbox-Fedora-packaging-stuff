@@ -122,12 +122,13 @@ mkdir -p %{buildroot}%{_sysconfdir}/%{name}
 mkdir -p %{buildroot}%{_bindir}
 
 cp -a netbox/* %{buildroot}%{_datadir}/%{name}
-ln -sf %{_sysconfdir}/%{name}/%{oname}/configuration.py %{buildroot}%{_datadir}/%{name}/configuration.py
+ln -sf %{_sysconfdir}/%{name}/configuration.py %{buildroot}%{_datadir}/%{name}/configuration.py
 
 # FIXME: This doesn't actually work
 #ln -sf %{_datadir}/%{name}/manage.py %{buildroot}%{_bindir}/%{oname}-manage
 #ln -sf %{_datadir}/%{name}/generate_secret_key.py %{buildroot}%{_bindir}/%{oname}-genseckey
 
+touch %{buildroot}%{_sysconfdir}/%{name}/configuration.py
 
 # We'll docify this later
 rm %{buildroot}%{_datadir}/%{name}/%{oname}/configuration.{docker,example}.py
@@ -137,7 +138,9 @@ rm %{buildroot}%{_datadir}/%{name}/%{oname}/configuration.{docker,example}.py
 %files -n python%{use_pyver}-django-netbox
 %license LICENSE.txt
 %doc README.md docs/* netbox/netbox/configuration.{docker,example}.py
-
+%{_datadir}/%{name}
+# FIXME: Make a real config file to ship for different configurations
+%ghost %{_sysconfdir}/%{name}/configuration.py
 
 
 %changelog
