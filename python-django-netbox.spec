@@ -1,7 +1,11 @@
 %global oname netbox
 
 # Use Python 3 by default
+%if 0%{?fedora} || 0%{?rhel} >= 8
 %bcond_without python3
+%else
+%bcond_with python3
+%endif
 
 %global python2_pkgversion 2
 %{?!python3_pkgversion:%global python3_pkgversion 3}
@@ -9,7 +13,12 @@
 %if %{with python3}
 %global use_pyver %python3_pkgversion
 %else
-%global use_pyver %python2_pkgversion
+# RHEL < 8 uses python- prefix rather than python2-
+  %if 0%{?rhel} > 0 && 0%{?rhel} < 8
+    %global use_pyver %{nil}
+  %else
+    %global use_pyver %python2_pkgversion
+  %endif
 %endif
 
 # Minimum versions for deps
