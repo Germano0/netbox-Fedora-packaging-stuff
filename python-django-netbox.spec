@@ -107,7 +107,7 @@ Requires:  python%{use_pyver}-psycopg2 >= %{min_psycopg2_ver}
 Requires:  python%{use_pyver}-gfm >= %{min_py_gfm_ver}
 Requires:  python%{use_pyver}-crypto >= %{min_pycrypto_ver}
 Requires:  python%{use_pyver}-sqlparse >= %{min_sqlparse_ver}
-Requires:  python%{use_pyver}-xmltodict >= 0.10.2
+Requires:  python%{use_pyver}-xmltodict >= %{min_xmltodict_ver}
 
 # Also provide by original name
 Provides:  %{oname} = %{version}-%{release}
